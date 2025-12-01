@@ -654,7 +654,7 @@ public:
 };
 ```
 
-## Constructor Best Practices
+## Constructor Summary
 
 1. **Always initialize all member variables** - Uninitialized members lead to undefined behavior
 2. **Use initialization lists** - More efficient, especially for complex objects
