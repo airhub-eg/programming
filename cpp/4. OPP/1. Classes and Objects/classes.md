@@ -1,6 +1,6 @@
 # Classes and Objects in C++
 
-Classes and objects are fundamental to Object-Oriented Programming (OOP) in C++. Let me provide you with a comprehensive explanation.
+Classes and objects are fundamental to Object-Oriented Programming (OOP) in C++.
 
 ## What is a Class?
 
@@ -26,6 +26,9 @@ class ClassName {
     protected:
         // Protected members (data and functions)
 };
+
+// Creating object (instances of the class)
+ClassName object1;
 ```
 
 ## Access Specifiers
@@ -37,6 +40,131 @@ C++ provides three access specifiers that control how class members can be acces
 **2. Public:** Members are accessible from anywhere in the program where the object is visible.
 
 **3. Protected:** Members are accessible within the class and by derived classes (used in inheritance).
+
+### 1. Public Access Specifier
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student
+{
+public:
+    // Public data members
+    string name;
+    int age;
+    int rollNumber;
+
+    // Regular member function
+    void displayInfo()
+    {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "Roll Number: " << rollNumber << endl;
+    }
+};
+
+int main()
+{
+    // Creating objects (instances of the class)
+    Student student1; // Using default constructor
+
+    // Accessing public data members
+    student1.name = "Ali";
+    student1.age = 21;
+    student1.rollNumber = 9999;
+
+    cout << "Student 1 Information:" << endl;
+    // Accessing public methods
+    student1.displayInfo();
+
+    return 0;
+}
+```
+
+### 2. Protected Access Specifier
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student
+{
+protected:
+    // Protected data members
+    string name;
+    int age;
+    int rollNumber;
+
+public:
+    // Regular member function
+    void displayInfo()
+    {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "Roll Number: " << rollNumber << endl;
+    }
+};
+
+int main()
+{
+    // Creating objects (instances of the class)
+    Student student1; // Using default constructor
+
+    // Accessing protected data members
+    student1.name = "Ali";      // error: 'std::string Student::name' is protected within this contex
+    student1.age = 21;          // error: 'int Student::age' is protected within this context
+    student1.rollNumber = 9999; // error: 'int Student::rollNumber' is protected within this context
+
+    cout << "Student 1 Information:" << endl;
+    // Accessing public methods
+    student1.displayInfo();
+
+    return 0;
+}
+```
+
+### 3. Private Access Specifier
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student
+{
+private:
+    // Private data members
+    string name;
+    int age;
+    int rollNumber;
+
+public:
+    // Regular member function
+    void displayInfo()
+    {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "Roll Number: " << rollNumber << endl;
+    }
+};
+
+int main()
+{
+    // Creating objects (instances of the class)
+    Student student1; // Using default constructor
+
+    // Accessing private data members
+    student1.name = "Ali";      // error: 'std::string Student::name' is private within this context
+    student1.age = 21;          // error: 'int Student::age' is private within this context
+    student1.rollNumber = 9999; // error: 'int Student::rollNumber' is private within this context
+
+    cout << "Student 1 Information:" << endl;
+    // Accessing public methods
+    student1.displayInfo();
+
+    return 0;
+}
+```
 
 ## Complete Example
 
